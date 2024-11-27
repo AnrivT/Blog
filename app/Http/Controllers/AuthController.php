@@ -27,7 +27,6 @@ class AuthController extends Controller
             'first_name'=> $userData['first_name'],
             'last_name'=> $userData['last_name'],
             'phone'=> $userData['phone'],
-            'name'=> $userData['name'],
             'email'=> $userData['email'],
             'password'=> Hash::make($userData['password']),
         ]);
@@ -44,14 +43,10 @@ class AuthController extends Controller
         if (!Auth::attempt($userData)) {
             return response()->json(['error'=>'Invalid Credentials']);
         }
-        else{
-            $user = Auth::user();
-            $token = $user->createToken('API token')->plainTextToken;
-    
-            return response()->json(['token' =>$token]) ;
-        }
+        $user = Auth::user();
+        $token = $user->createToken('API token')->plainTextToken;
 
-        return response()->json(['message' =>'Unauthorized']) ;
+        return response()->json(['token' =>$token]) ;
         
        // dd($request->all());
     }
