@@ -1,4 +1,4 @@
-##Expected Outcomes
+##Expected Outcomes:
 -Setting up and using Laravel Sanctum.
 -Creating and consuming RESTful APIs.
 -Handling relationships in Eloquent.
