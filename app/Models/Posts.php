@@ -12,4 +12,8 @@ class Posts extends Model
         "title",
         "content",
     ];
+
+    public function posts(){
+        return $this->hasMany(Post::class); 
+    }
 }
