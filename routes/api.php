@@ -8,6 +8,11 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\RegisterController;
 
+Route::get('/hello', function () {
+    return "Hello World!";
+  });
+
+  
 Route::post("/register", [AuthController::class,'register']);
 Route::post("/login", [AuthController::class,'login']);
 Route::post("/logout", [AuthController::class,'logout'])->middleware("auth:sanctum");
